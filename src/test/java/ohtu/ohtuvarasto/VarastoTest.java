@@ -114,13 +114,14 @@ public class VarastoTest {
         assertEquals("saldo = 5.0, vielä tilaa 5.0", varasto.toString());
     }
 
-    @Test
-    public void tilavuusOikein() {
-
-        Varasto v = new Varasto(10, 5);
-
-        assertEquals(10, v.getTilavuus(), vertailuTarkkuus);
-    }
+//    @Test
+//    public void tilavuusOikein() {
+//
+//        Varasto v = new Varasto(10, 5);
+//
+//        assertEquals(10, v.getTilavuus(), vertailuTarkkuus);
+//    }
+    // codecov test
 
     @Test
     public void alkusaldoOikein() {
