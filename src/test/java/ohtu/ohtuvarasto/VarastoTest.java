@@ -65,4 +65,96 @@ public class VarastoTest {
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
     }
 
+    @Test
+    public void negatiivinenVarasto() {
+
+        Varasto v = new Varasto(-12);
+
+        assertEquals(0.0, v.paljonkoMahtuu(), vertailuTarkkuus);
+
+    }
+
+    @Test
+    public void liikaaTavaraa() {
+
+        varasto.lisaaVarastoon(100);
+
+        assertEquals(10.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void yritetaanOttaaLiikaa() {
+
+        varasto.lisaaVarastoon(3);
+
+        varasto.otaVarastosta(5);
+
+        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void negatiivinenSaldoLisays() {
+
+        varasto.lisaaVarastoon(-12);
+
+        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void negatiivinenSaldonOtto() {
+        varasto.otaVarastosta(-12);
+
+        assertEquals(0.0, varasto.getSaldo(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void oikeaMerkkijono() {
+        varasto.lisaaVarastoon(5);
+
+        assertEquals("saldo = 5.0, vielä tilaa 5.0", varasto.toString());
+    }
+
+    @Test
+    public void tilavuusOikein() {
+
+        Varasto v = new Varasto(10, 5);
+
+        assertEquals(10, v.getTilavuus(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void alkusaldoOikein() {
+
+        Varasto v = new Varasto(10, 5);
+
+        assertEquals(5.0, v.getSaldo(), vertailuTarkkuus);
+
+    }
+    
+    @Test
+    public void negatiivinenVarasto2() {
+        
+        Varasto v = new Varasto(-10, 5);
+        
+        assertEquals(0, v.getTilavuus(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void negatiivinenSaldo2() {
+        
+        Varasto v = new Varasto(10, -5);
+        
+        assertEquals(0.0, v.getSaldo(), vertailuTarkkuus);
+    }
+    
+    @Test
+    public void liikaaSaldoa() {
+        
+        Varasto v = new Varasto(10, 5);
+        
+        v.lisaaVarastoon(12);
+        
+        assertEquals(10.0, v.getSaldo(), vertailuTarkkuus);
+        
+    }
 }
