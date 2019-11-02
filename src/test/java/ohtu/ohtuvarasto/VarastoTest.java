@@ -127,7 +127,8 @@ public class VarastoTest {
 
         Varasto v = new Varasto(10, 5);
 
-        assertEquals(5.0, v.getSaldo(), vertailuTarkkuus);
+        assertEquals(6.0, v.getSaldo(), vertailuTarkkuus);
+        // epäonnistuvakoodi testi
 
     }
     
