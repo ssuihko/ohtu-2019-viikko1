@@ -1,5 +1,6 @@
 *.tmp
 .gradle/
 build/
-*tmp
 /.nb-gradle/
+/build/
+build.gradle.save
